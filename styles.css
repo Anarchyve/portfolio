@@ -1,0 +1,202 @@
+/* CSS 변수: 테마 색상 설정 (기본 테마) */
+:root {
+    --bg-color: #fff;
+    --text-color: #000;
+    --header-bg-color: #f4f4f4;
+    --header-text-color: #000;
+}
+
+/* 다크 모드 테마 설정 */
+.dark-mode {
+    --bg-color: #000;
+    --text-color: #fff;
+    --header-bg-color: #333;
+    --header-text-color: #fff;
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    height: 80px !important;
+    padding: 1em;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+header:hover {
+    height: 150px !important;
+}
+
+/* 내비게이션 스타일 */
+nav {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+header:hover nav {
+    opacity: 1;
+    visibility: visible;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0.5em 0;
+}
+
+/* 모바일 화면에서 내비게이션 스타일 */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+}
+
+/* 프로젝트 리스트 스타일 */
+.projects-lists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em;
+    padding: 1em 0;
+}
+
+.projects-lists a {
+    display: block;
+    background-color: #f9f9f9;
+    padding: 1.5em;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-lists a:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.dark-mode .projects-lists a {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .projects-lists a:hover {
+    background-color: #444;
+    box-shadow: 0 8px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* 스크롤 스냅 설정 */
+html, body {
+    height: 100%;
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+/* 모바일 스크롤 스냅 설정 */
+@media (max-width: 768px) {
+    .scroll-section {
+        height: auto;
+        padding: 2em 1em;
+    }
+}
+
+/* 다크 모드 토글 */
+.toggle-switch {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    z-index: 1001;
+}
+
+.toggle-switch input[type="checkbox"] {
+    display: none;
+}
+
+.toggle-switch label {
+    display: block;
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-switch label::after {
+    content: '';
+    width: 21px;
+    height: 21px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label {
+    background-color: #232323;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label::after {
+    transform: translateX(25px);
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+p {
+    font-size: 1rem;
+}
