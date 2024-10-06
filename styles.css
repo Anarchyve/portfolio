@@ -1,4 +1,4 @@
-/* CSS 변수: 테마 색상 설정 (기본 테마) */
+/* 기본 테마 설정 */
 :root {
     --bg-color: #fff;
     --text-color: #000;
@@ -21,15 +21,14 @@ header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    height: 80px !important;
+    height: 80px;
     padding: 1em;
     box-sizing: border-box;
-    overflow: hidden;
-    transition: height 0.3s ease;
+    transition: height 0.3s ease, background-color 0.3s ease; /* 성능 최적화를 위한 transition 설정 */
 }
 
 header:hover {
-    height: 150px !important;
+    height: 150px;
 }
 
 /* 내비게이션 스타일 */
@@ -81,15 +80,15 @@ nav ul li {
     text-decoration: none;
     color: var(--text-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 성능 최적화를 위한 애니메이션 설정 */
 }
 
 .projects-lists a:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
+    transform: translateY(-5px); /* 애니메이션 크기를 줄여 성능 최적화 */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* 다크 모드 프로젝트 리스트 스타일 */
 .dark-mode .projects-lists a {
     background-color: #333;
     color: #fff;
