@@ -200,3 +200,19 @@ p {
     font-size: 1rem;
 }
 
+.project-item {
+    margin-bottom: 1.5em;
+}
+
+.project-item a {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.project-item p {
+    font-size: 0.75em;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.5;
+}
